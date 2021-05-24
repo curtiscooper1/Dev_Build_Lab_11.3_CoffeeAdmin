@@ -1,0 +1,54 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body>
+    <div class="bg-image"
+         style="
+    background-image: url('YL+FOR+WEBSITE.jpeg');
+    height: 100vh;
+    ">
+        <div class="text-lg-right">
+            <h1 class="display-4">Welcome to Yellow Light </h1>
+        </div>
+        <br />
+        <br />
+        <br />
+        <h2>View Our Menu Items</h2>
+
+        <p>Click On Menu Item To See Description</p>
+        <div class="text-lg-left">
+            <h1>Coffee</h1>
+            @foreach (Product item in Model)
+            {
+                @if (item.category == "Coffee")
+                {
+
+                    <a href="/home/Detail/@item.id">@item.name - $@item.price</a><br />
+                }
+            }
+
+            <h1>Biscuits</h1>
+            @foreach (Product item in Model)
+            {
+
+                @if (item.category == "Biscuits")
+                {
+                    <a href="/home/Detail/@item.id">@item.name - $@item.price</a><br />
+                }
+            }
+            <h1>Donuts</h1>
+            @foreach (Product item in Model)
+            {
+
+                @if (item.category == "Donuts")
+                {
+                    <a href="/home/Detail/@item.id">@item.name - $@item.price</a><br />
+                }
+            
+            }
+        </div>
+    </div>
+</body>
+

@@ -1,0 +1,15 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Product Listing</h1>
+<p>Click add, edit, or delete to update the Product List</p>
+<a class="crud" href="/admin/addform">Add Product</a><br /><br />
+<p><strong>Update Existing Products</strong></p>
+
+@foreach (Product item in Model)
+{
+<a href="/admin/@item.id">@item.name:&nbsp;&nbsp;&nbsp;</a><a class="crud" href="/admin/EditProduct/@item.id">Edit&nbsp;&nbsp;&nbsp;</a><a class="crud" href="/admin/delete/@item.id">Delete</a><br />
+}
+
